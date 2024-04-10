@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.eUserCraftzone.Model.AddProductModel
-import com.example.eUserCraftzone.Model.categoryModel
+import com.example.eusercraftzone.Model.AddProductModel
+import com.example.eusercraftzone.Model.categoryModel
+import com.example.eusercraftzone.adapter.CategoryAdapter
 import com.example.eusercraftzone.adapter.ProductAdapter
-import com.example.eusercraftzone.adapter.categoryAdapter
 import com.example.eusercraftzone.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -37,7 +37,6 @@ class HomeFragment : Fragment() {
                 Glide.with(requireContext()).load(it.get("img")).into(binding.sliderimage)
             }
     }
-
     private fun getProducts() {
         val list = ArrayList<AddProductModel>()
         Firebase.firestore.collection("Products")
@@ -45,11 +44,9 @@ class HomeFragment : Fragment() {
                 list.clear()
                 for (doc in it.documents) {
                     val data = doc.toObject(AddProductModel::class.java)
-                    if(data != null)
-                    //list.add(data!!)
-                        list.add(data)
+                    list.add(data!!)
                 }
-             binding.productRecycler.adapter = ProductAdapter(requireContext(), list)
+                binding.productRecycler.adapter = ProductAdapter(requireContext(), list)
             }
     }
     private fun getcategories() {
@@ -59,12 +56,9 @@ class HomeFragment : Fragment() {
                 list.clear()
                 for (doc in it.documents) {
                     val data = doc.toObject(categoryModel::class.java)
-                   // list.add(data!!)
-                    if(data != null)
-                        list.add(data)
+                    list.add(data!!)
                 }
-                binding.categoryRecycler.adapter =categoryAdapter(requireContext(), list)
-
+                binding.categoryRecycler.adapter =CategoryAdapter(requireContext(), list)
             }
     }
     }

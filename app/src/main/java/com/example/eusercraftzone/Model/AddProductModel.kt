@@ -1,5 +1,4 @@
-package com.example.eUserCraftzone.Model
-
+package com.example.eusercraftzone.Model
 data class AddProductModel(
     val productName : String? = "",
     val productDescription : String? = "",

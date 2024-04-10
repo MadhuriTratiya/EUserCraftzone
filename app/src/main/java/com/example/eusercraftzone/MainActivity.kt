@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         val popupMenu = PopupMenu(this,null)
         popupMenu.inflate(R.menu.bottom_nav)
         binding.bottomBar.setupWithNavController(popupMenu.menu,navController)
+
+        //Change title of fragment with changing fragment
         navController.addOnDestinationChangedListener(object :NavController.OnDestinationChangedListener{
             override fun onDestinationChanged(
                 controller: NavController,

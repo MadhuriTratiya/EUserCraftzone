@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.eUserCraftzone.Model.AddProductModel
+import com.example.eusercraftzone.Model.AddProductModel
 import com.example.eusercraftzone.activity.ProductDetailsActivity
 import com.example.eusercraftzone.databinding.LayoutProductItemBinding
 
@@ -14,8 +14,8 @@ class ProductAdapter(val context:Context, val list: ArrayList<AddProductModel>)
     :RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
 
-    inner class ProductViewHolder(val binding: LayoutProductItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class ProductViewHolder(val binding: LayoutProductItemBinding)
+        : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = LayoutProductItemBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -41,9 +41,5 @@ class ProductAdapter(val context:Context, val list: ArrayList<AddProductModel>)
             intent.putExtra("id",list[position].ProductId)
             context.startActivity(intent)
         }
-    //    holder.binding.textView.text = list[position].productName
-    //    holder.binding.textView2.text = list[position].productSp
-
-
     }
 }

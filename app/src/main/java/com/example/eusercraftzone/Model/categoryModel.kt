@@ -1,4 +1,4 @@
-package com.example.eUserCraftzone.Model
+package com.example.eusercraftzone.Model
 
 class categoryModel (
     var cat: String? = "",

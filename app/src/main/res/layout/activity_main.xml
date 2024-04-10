@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
@@ -27,7 +28,6 @@
         android:layout_height="56dp"
         android:layout_marginTop="661dp"
         app:backgroundColor="@color/sky"
-
         app:indicatorRadius="15dp"
         app:iconMargin="8dp"
         app:iconSize="24dp"

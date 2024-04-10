@@ -18,10 +18,6 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         getProductDetails(intent.getStringExtra("id"))
         setContentView(bindining.root)
-
-
-
-
     }
 
     private fun getProductDetails(prodId: String?) {

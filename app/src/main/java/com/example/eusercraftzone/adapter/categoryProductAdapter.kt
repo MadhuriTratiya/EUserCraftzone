@@ -5,9 +5,9 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.eUserCraftzone.Model.AddProductModel
+import com.example.eusercraftzone.Model.AddProductModel
+import com.example.eusercraftzone.Model.categoryModel
 import com.example.eusercraftzone.activity.ProductDetailsActivity
 import com.example.eusercraftzone.databinding.ItemCategoryProductLayoutBinding
 
@@ -15,8 +15,7 @@ class categoryProductAdapter(val context: Context, val list: ArrayList<AddProduc
     :RecyclerView.Adapter<categoryProductAdapter.categoryProductViewHolder>(){
 
     inner class categoryProductViewHolder(val binding: ItemCategoryProductLayoutBinding)
-
-        : ViewHolder(binding.root)
+        : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): categoryProductViewHolder {
         val binding = ItemCategoryProductLayoutBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -33,10 +32,9 @@ class categoryProductAdapter(val context: Context, val list: ArrayList<AddProduc
         holder.binding.textView4.text = list[position].productName
         holder.binding.textView5.text = list[position].productSp
 
-        //when call product Detail this listener will call
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,ProductDetailsActivity::class.java)
-            intent.putExtra("id",list[position].ProductId)
+            val intent = Intent(context, ProductDetailsActivity::class.java)
+            intent.putExtra("id", list[position].ProductId)
             context.startActivity(intent)
         }
     }

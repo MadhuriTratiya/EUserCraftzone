@@ -3,7 +3,7 @@ package com.example.eusercraftzone.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.eUserCraftzone.Model.AddProductModel
+import com.example.eusercraftzone.Model.AddProductModel
 import com.example.eusercraftzone.R
 import com.example.eusercraftzone.adapter.categoryProductAdapter
 import com.google.firebase.firestore.ktx.firestore
@@ -25,8 +25,7 @@ class CategoryActivity : AppCompatActivity() {
                 list.clear()
                 for (doc in it.documents) {
                     val data = doc.toObject(AddProductModel::class.java)
-                    if(data != null)
-                    list.add(data)
+                    list.add(data!!)
                 }
                 val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
                 recyclerView.adapter = categoryProductAdapter(this, list)
